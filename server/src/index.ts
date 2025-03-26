@@ -10,8 +10,22 @@ const app = express();
 const PORT = Number(process.env.PORT) || 5000;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/store';
 
-// ✅ Configure CORS Properly
-app.use(cors());
+// Configure CORS
+app.use(cors({
+  origin: ['https://product-web-app-nine.vercel.app'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
+// Additional CORS Headers for Debugging
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://product-web-app-nine.vercel.app');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
 
 mongoose.connect(MONGO_URI)
   .then(() => console.log('MongoDB connected'))

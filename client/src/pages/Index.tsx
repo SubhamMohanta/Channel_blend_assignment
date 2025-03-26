@@ -14,6 +14,7 @@ const Index = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get<Product[]>('https://channel-blend-assignment.onrender.com/api/products');
+        console.log(response);
         setProducts(response.data);
       } catch (error) {
         console.error('Error fetching products:', error);

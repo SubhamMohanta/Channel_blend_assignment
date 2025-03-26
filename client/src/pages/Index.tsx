@@ -14,7 +14,6 @@ const Index = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get<Product[]>('https://channel-blend-assignment-ygs5.vercel.app/api/products');
-        console.log(response);
         setProducts(response.data);
       } catch (error) {
         console.error('Error fetching products:', error);

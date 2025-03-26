@@ -12,7 +12,7 @@ const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/store';
 
 // ✅ Configure CORS Properly
 app.use(cors({
-  origin: ['https://product-web-app-nine.vercel.app'],
+  origin: ['https://product-web-app-nine.vercel.app/'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],

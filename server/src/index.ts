@@ -10,16 +10,30 @@ const app = express();
 const PORT = Number(process.env.PORT) || 5000;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/store';
 
+// MongoDB Connection
 mongoose.connect(MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('MongoDB connection error:', err));
 
+// CORS Configuration
+const allowedOrigins = [
+  'http://localhost:5173', // For local development
+  'https://product-web-app-nine.vercel.app', // Your Vercel frontend domain
+];
+
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://product-web-ri8baniz1-subham-mohantas-projects.vercel.app/'],
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
 }));
-app.use(express.json());
 
+// Middleware
+app.use(express.json());
 app.use('/api/products', productRoutes);
 
 app.listen(PORT, () => {

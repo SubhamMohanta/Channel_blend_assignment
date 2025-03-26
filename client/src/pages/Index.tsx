@@ -13,7 +13,7 @@ const Index = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get<Product[]>('http://192.168.1.5:5000/api/products');
+        const response = await axios.get<Product[]>('http://localhost:5000/api/products');
         setProducts(response.data);
       } catch (error) {
         console.error('Error fetching products:', error);
@@ -58,6 +58,7 @@ const Index = () => {
                   />
                 </div>
                 <div className="p-4">
+                <p className="text-sm font-medium text-zinc-500">{product.brand}</p>
                   <h2 className="text-xl font-medium">{product.name}</h2>
                   <p className="font-medium mt-2">MRP : ₹{product.price}</p>
                 </div>

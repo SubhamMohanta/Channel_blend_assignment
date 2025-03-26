@@ -87,19 +87,18 @@ const Cart = () => {
               </div>
             </div>
           ) : (
-            <div className="bg-white rounded-xl p-8 shadow-sm text-center">
+            <div className="pt-32 bg-white p-8 text-center">
               <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="h-10 w-10 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
               </div>
               <h2 className="text-xl font-bold mb-2">Your bag is empty</h2>
-              <p className="text-gray-500 mb-6">Looks like you haven't added anything to your bag yet.</p>
               <Link
                 to="/"
-                className="bg-zinc-950 text-white px-6 py-7 rounded-full inline-block hover:bg-[#FF0102] transition-colors"
+                className="bg-zinc-950 text-white px-20 py-4 rounded-full inline-block hover:bg-[#FF0102] transition-colors"
               >
-                Start Shopping
+                See products
               </Link>
             </div>
           )}

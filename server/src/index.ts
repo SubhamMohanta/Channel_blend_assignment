@@ -15,7 +15,7 @@ mongoose.connect(MONGO_URI)
   .catch((err) => console.error('MongoDB connection error:', err));
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://your-frontend-domain.com'],
+  origin: ['http://localhost:5173', 'https://product-web-ri8baniz1-subham-mohantas-projects.vercel.app/'],
   credentials: true,
 }));
 app.use(express.json());

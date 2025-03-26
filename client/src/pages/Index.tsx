@@ -13,7 +13,7 @@ const Index = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get<Product[]>('https://channel-blend-assignment.onrender.com/api/products');
+        const response = await axios.get<Product[]>('https://channel-blend-assignment-ygs5-rhai9t8h5.vercel.app/api/products');
         console.log(response);
         setProducts(response.data);
       } catch (error) {

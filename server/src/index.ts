@@ -1,8 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import cors from 'cors';
 import productRoutes from './routes/productRoutes';
+import cors from 'cors'
 
 dotenv.config();
 
@@ -11,7 +11,7 @@ const PORT = Number(process.env.PORT) || 5000;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/store';
 
 // Configure CORS
-app.use(cors());
+app.use(cors())
 
 mongoose.connect(MONGO_URI)
   .then(() => console.log('MongoDB connected'))
